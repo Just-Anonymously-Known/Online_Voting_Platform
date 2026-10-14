@@ -5,8 +5,8 @@ const authRoutes = require('./routes/authRoutes');
 const app = express();
 
 app.use(express.json());
-app.use('/api/candidates', require('./src/routes/candidateRoutes'));
-app.use('/api/votes', require('./src/routes/voteRoutes'));
+app.use('/api/candidates', require('./routes/candidateRoute'));
+app.use('/api/votes', require('./routes/voteRoute'));
 
 // Health check
 app.get('/api/health', (req, res) => {
