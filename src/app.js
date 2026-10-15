@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const electionRoutes = require("./routes/ElectionRoutes");
+const resultRoutes = require('./routes/resultRoutes');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use('/api/votes', require('./routes/voteRoute'));
 //Register API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/elections", electionRoutes);
+app.use('/api/elections', resultRoutes);
 
 // Health check
 app.get("/api/health", (req, res) => {
