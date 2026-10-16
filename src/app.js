@@ -2,18 +2,18 @@ const express = require("express");
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const electionRoutes = require("./routes/ElectionRoutes");
-const resultRoutes = require('./routes/resultRoutes');
+const positionRoutes = require("./routes/positionRoutes");
 
 const app = express();
 
 app.use(express.json());
-app.use('/api/candidates', require('./routes/candidateRoute'));
-app.use('/api/votes', require('./routes/voteRoute'));
 
 //Register API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/elections", electionRoutes);
-app.use('/api/elections', resultRoutes);
+app.use('/api/candidates', require('./routes/candidateRoute'));
+app.use('/api/votes', require('./routes/voteRoute'));
+app.use('/api/positions', require('./routes/positionRoutes'));
 
 // Health check
 app.get("/api/health", (req, res) => {
