@@ -7,13 +7,12 @@ const resultRoutes = require('./routes/resultRoutes');
 const app = express();
 
 app.use(express.json());
-app.use('/api/candidates', require('./routes/candidateRoute'));
-app.use('/api/votes', require('./routes/voteRoute'));
-
 //Register API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/elections", electionRoutes);
-app.use('/api/elections', resultRoutes);
+app.use('/api/candidates', require('./routes/candidateRoute'));
+app.use('/api/votes', require('./routes/voteRoute'));
+app.use('/api/positions', require('./routes/positionRoutes'));
 
 // Health check
 app.get("/api/health", (req, res) => {
