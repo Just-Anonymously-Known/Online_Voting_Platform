@@ -9,7 +9,7 @@ const isValidId = (id) => mongoose.isObjectIdOrHexString(id);
 // POST /api/candidates (admin only)
 const createCandidate = async (req, res) => {
   try {
-    const { user, election, position, manifesto, status } = req.body;
+    const { user, election, position, manifesto } = req.body;
 
     if (!user || !election || !position) {
       return res.status(400).json({ message: 'user, election and position are required' });
@@ -36,7 +36,7 @@ const createCandidate = async (req, res) => {
       }
     }
 
-    const candidate = await Candidate.create({ user, election, position, manifesto, status });
+    const candidate = await Candidate.create({ user, election, position, manifesto });
 
     return res.status(201).json({ message: 'Candidate added successfully', data: candidate });
   } catch (error) {
