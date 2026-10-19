@@ -13,6 +13,7 @@ app.use("/api/elections", electionRoutes);
 app.use('/api/candidates', require('./routes/candidateRoute'));
 app.use('/api/votes', require('./routes/voteRoute'));
 app.use('/api/positions', require('./routes/positionRoutes'));
+app.use('/api/elections', resultRoutes)
 
 // Health check
 app.get("/api/health", (req, res) => {
